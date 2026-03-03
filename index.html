@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Juego del Número Mágico</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__contenido">
+            <div class="container__informaciones">
+                <div class="container__texto">
+                    <h1></h1>
+                    <p class="texto__parrafo"></p>
+                </div>
+                
+                <input type="number" id="valorUsuario" min="1" max="100" class="container__input" placeholder="00">
+                
+                <div class="container__botones">
+                    <button onclick="verificarIntento();" id="btnIntentar" class="container__boton">Intentar</button>
+                    <button onclick="reiniciarJuego();" class="container__boton" id="reiniciar" disabled>Nuevo juego</button>
+                </div>
+
+                <div id="historial" class="container__historial">
+                    Intentos: Ninguno
+                </div>
+            </div>
+            <img src="img/leclerc.png" alt="Persona" class="container__imagen-persona" />
+        </div>
+    </div>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
