@@ -4,6 +4,7 @@ let numerosIngresados = [];
 const numeroMaximo = 100;
 const maximoIntentos = 10;
 
+// Función reutilizable para insertar texto en etiquetas HTML
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
     elementoHTML.innerHTML = texto;
@@ -59,19 +60,23 @@ function finalizarJuego() {
     document.getElementById('reiniciar').removeAttribute('disabled');
 }
 
+// Muestra en la interfaz los números guardados en el arreglo
 function actualizarHistorial() {
     const historialElem = document.getElementById('historial');
     historialElem.innerHTML = `Números ingresados: ${numerosIngresados.join(' - ')}`;
 }
 
+// Vacía el campo de texto (input)
 function limpiarCaja() {
     document.querySelector('#valorUsuario').value = '';
 }
 
+// Genera el número aleatorio dentro del límite establecido
 function generarNumeroSecreto() {
     return Math.floor(Math.random() * numeroMaximo) + 1;
 }
 
+// Configura los valores por defecto al iniciar o reiniciar una partida
 function condicionesIniciales() {
     asignarTextoElemento('h1', 'Número Mágico');
     asignarTextoElemento('p', `Adivina el número entre 1 y ${numeroMaximo} (Máximo ${maximoIntentos} intentos)`);
@@ -79,13 +84,14 @@ function condicionesIniciales() {
     intentos = 1;
     numerosIngresados = [];
     
-    // Resetear interfaz
+// Reactiva los controles para jugar
     document.getElementById('valorUsuario').removeAttribute('disabled');
     document.getElementById('btnIntentar').removeAttribute('disabled');
     document.getElementById('historial').innerHTML = 'Números ingresados: Ninguno todavía';
     limpiarCaja();
 }
 
+// Restablece el juego completo cuando el usuario presiona "Nuevo juego"
 function reiniciarJuego() {
     condicionesIniciales();
     document.querySelector('#reiniciar').setAttribute('disabled', 'true');
